@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Halaman Pembayaran</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+    .payment-container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    .method {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .method:last-child {
+      border-bottom: none;
+    }
+    .method-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .method-info img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .method-text {
+      font-size: 16px;
+      user-select: all;
+    }
+    button.copy-btn {
+      background: #2980b9;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button.copy-btn:hover {
+      background: #3498db;
+    }
+    .qris-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .qris-container img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .external-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .external-link a {
+      display: inline-block;
+      background: #27ae60;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .external-link a:hover {
+      background: #2ecc71;
+    }
+
+    @media(max-width: 450px) {
+      .payment-container {
+        width: 90%;
+        padding: 15px;
+      }
+      .method-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Metode Pembayaran</h1>
+  <div class="payment-container">
+    <div class="method">
+      <div class="method-info">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Dana_logo.svg/1200px-Dana_logo.svg.png" alt="Dana" />
+        <div class="method-text" id="dana">081234567890</div>
+      </div>
+      <button class="copy-btn" onclick="copyText('dana')">Copy</button>
+    </div>
+
+    <div class="method">
+      <div class="method-info">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Go-Pay_Logo.svg/1200px-Go-Pay_Logo.svg.png" alt="GoPay" />
+        <div class="method-text" id="gopay">081234567891</div>
+      </div>
+      <button class="copy-btn" onclick="copyText('gopay')">Copy</button>
+    </div>
+
+    <div class="method">
+      <div class="method-info">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Ovo_Logo.svg/2560px-Ovo_Logo.svg.png" alt="OVO" />
+        <div class="method-text" id="ovo">081234567892</div>
+      </div>
+      <button class="copy-btn" onclick="copyText('ovo')">Copy</button>
+    </div>
+
+    <div class="method">
+      <div class="method-info">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/ShopeePay_Logo.svg/1280px-ShopeePay_Logo.svg.png" alt="ShopeePay" />
+        <div class="method-text" id="shopeepay">081234567893</div>
+      </div>
+      <button class="copy-btn" onclick="copyText('shopeepay')">Copy</button>
+    </div>
+
+    <div class="qris-container">
+      <h3>Bayar via QRIS</h3>
+      <img src="https://dummyimage.com/180x180/000/fff.png&text=QRIS" alt="QRIS" />
+    </div>
+
+    <div class="external-link">
+      <a href="https://saweria.co/username" target="_blank" rel="noopener noreferrer">Donasi via Saweria</a>
+    </div>
+  </div>
+
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Nomor berhasil disalin: ' + text);
+      }).catch(() => {
+        alert('Gagal menyalin, silakan salin secara manual.');
+      });
+    }
+  </script>
+</body>
+</html>
